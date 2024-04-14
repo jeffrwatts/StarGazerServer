@@ -1,5 +1,7 @@
 Local Debug
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"
+export BUCKET_NAME
+export SECRET_NAME
 functions-framework --target=getImages --debug
 
 Check Function Available
@@ -12,5 +14,4 @@ gcloud functions deploy get_images \
     --region=us-central1 \
     --source=. \
     --entry-point=getImages \
-    --trigger-http \
-    --set-env-vars BUCKET_NAME='your-bucket-name'
+    --trigger-http 
