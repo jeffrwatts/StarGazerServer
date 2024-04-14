@@ -5,7 +5,7 @@ import json
 import base64
 from datetime import timedelta
 from google.cloud import storage, secretmanager
-from google.oauth2 import service_account
+from google.oauth2 import service_account # type: ignore
 
 @functions_framework.http
 def getImages(request):
