@@ -1,6 +1,6 @@
 Local Debug
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"
-export BUCKET_NAME
+export BUCKET_NAME="BUCKET_NAME"
 
 functions-framework --target=getDso --debug
 
