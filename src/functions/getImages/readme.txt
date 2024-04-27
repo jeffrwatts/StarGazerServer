@@ -1,3 +1,5 @@
+Set up Secret as key base64 encoded with
+
 Local Debug
 export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your/service-account-file.json"
 export BUCKET_NAME
