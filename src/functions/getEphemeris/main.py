@@ -1,12 +1,34 @@
 import functions_framework
-
 from datetime import timedelta, datetime
 import json
+from skyfield.api import load, wgs84, Topos
+from google.cloud import storage
+import tempfile
+import logging
+import os
 
-from skyfield.api import load
+# Load the .bsp file from Google Cloud Storage
+def load_planetary_ephemeris(bucket_name, file_name):
+    try:
+        storage_client = storage.Client()
+        bucket = storage_client.bucket(bucket_name)
+        blob = bucket.blob(file_name)
 
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.bsp') as temp_file:
+            blob.download_to_filename(temp_file.name)
+            ephemeris = load(temp_file.name)
+        return ephemeris
+    except Exception as e:
+        logging.error(f"Error loading planetary ephemeris: {e}")
+        raise ValueError(f"Could not load planetary ephemeris: {e}")
+
+# Get the bucket name from the environment variable
+bucket_name = os.getenv('BUCKET_NAME')
+file_name = 'de421.bsp'
+
+# Load the ephemeris file once outside the function
+planets = load_planetary_ephemeris(bucket_name, file_name)
 ts = load.timescale()
-planets = load('de421.bsp')
 earth = planets['earth']
 
 planet_ephemeris = {
@@ -19,6 +41,7 @@ planet_ephemeris = {
     'Neptune': planets['neptune barycenter'],  
     'Moon': planets['moon']  
 }
+
 
 @functions_framework.http
 def getEphemeris(request):
