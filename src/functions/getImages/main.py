@@ -9,7 +9,7 @@ from google.oauth2 import service_account # type: ignore
 
 def get_cors_headers():
     return {
-        'Access-Control-Allow-Origin': 'http://localhost:5173',  # Update for your production domain
+        'Access-Control-Allow-Origin': 'https://star-gazer-420219.web.app',  # Update for your production domain
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Max-Age': '3600'
