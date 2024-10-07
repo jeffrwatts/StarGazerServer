@@ -1,0 +1,39 @@
+/* src/components/Gallery.css */
+
+/* Container for the gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  /* Individual gallery item */
+  .gallery-item {
+    width: 100%;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  /* Hover effect for gallery items */
+  .gallery-item:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Image styling */
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+  
+  /* Text styling */
+  .gallery-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+  

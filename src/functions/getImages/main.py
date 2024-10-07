@@ -7,8 +7,20 @@ from datetime import timedelta
 from google.cloud import storage, secretmanager
 from google.oauth2 import service_account # type: ignore
 
+def get_cors_headers():
+    return {
+        'Access-Control-Allow-Origin': 'http://localhost:5173',  # Update for your production domain
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '3600'
+    }
+
 @functions_framework.http
 def getImages(request):
+    # Handle CORS preflight request
+    if request.method == 'OPTIONS':
+        return ('', 204, get_cors_headers())
+
     # Create the Secret Manager client - workaround since generate_signed_url needs credentials directly passed.
     secret_client = secretmanager.SecretManagerServiceClient()
     secret_name = os.getenv('SECRET_NAME', 'your-secret-name')
@@ -45,10 +57,10 @@ def getImages(request):
                 credentials=credentials
                 )
         except Exception as e:
-            return json.dumps({"error": str(e)})
+            return (json.dumps({"error": str(e)}), 500, get_cors_headers())
 
         image['url'] = signed_url
         enhanced_data.append(image)
 
     # Return the enhanced JSON
-    return json.dumps(enhanced_data)
+    return (json.dumps(enhanced_data), 200, get_cors_headers())
