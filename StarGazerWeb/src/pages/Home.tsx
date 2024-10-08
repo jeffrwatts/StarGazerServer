@@ -10,7 +10,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ images }) => {
   return (
     <div>
-      <h1>StarGazer Gallery</h1>
+      <h1>Jeff's Astrophotography Gallery</h1>
       <Gallery images={images} />
     </div>
   );

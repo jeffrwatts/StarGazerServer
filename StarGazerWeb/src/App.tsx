@@ -11,13 +11,14 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('https://us-central1-star-gazer-420219.cloudfunctions.net/get_images');
+        const response = await fetch('/images/images.json'); // Fetch JSON from public folder
         const data = await response.json();
         setImages(data);
       } catch (error) {
-        console.error('Error fetching the images:', error);
+        console.error('Error fetching images:', error);
       }
     };
+
     fetchImages();
   }, []);
 

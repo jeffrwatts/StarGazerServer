@@ -15,7 +15,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
         <div key={image.objectId} className="gallery-item">
           <Link to={`/image/${image.objectId}`}>
             <img
-              src={image.url} // Use the signed URL from the Google Cloud Function
+              src={`/images/${image.objectId}.webp`} // Use the objectId to reference the local image
               alt={image.displayName || image.objectId}
             />
           </Link>

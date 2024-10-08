@@ -2,39 +2,46 @@
 
 /* Container for the image view */
 .image-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  /* Image styling */
-  .image-view img {
-    max-width: 90%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-  }
-  
-  /* Title styling */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Image styling */
+.image-view img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Title styling - Default light mode */
+.image-view h2 {
+  font-size: 2rem;
+  color: #333; /* Dark text for light mode */
+  margin-bottom: 10px;
+}
+
+/* Metadata styling - Default light mode */
+.image-view p {
+  font-size: 1.2rem;
+  color: #666; /* Light gray for light mode */
+  margin: 5px 0;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
   .image-view h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+    color: #ddd; /* Lighter text for dark mode */
   }
-  
-  /* Metadata styling */
+
   .image-view p {
-    font-size: 1.2rem;
-    color: #666;
-    margin: 5px 0;
+    color: #aaa; /* Lighter gray text for dark mode */
   }
-  
-  /* Container for metadata */
-  .metadata {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .image-view img {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3); /* Softer shadow in dark mode */
   }
-  
+}
