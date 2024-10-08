@@ -17,31 +17,72 @@
   margin-bottom: 20px;
 }
 
-/* Title styling - Default light mode */
+/* Title styling */
 .image-view h2 {
   font-size: 2rem;
-  color: #333; /* Dark text for light mode */
   margin-bottom: 10px;
 }
 
-/* Metadata styling - Default light mode */
+/* Metadata styling */
 .image-view p {
   font-size: 1.2rem;
-  color: #666; /* Light gray for light mode */
   margin: 5px 0;
 }
 
-/* Dark mode styles */
+/* Dark mode support */
 @media (prefers-color-scheme: dark) {
-  .image-view h2 {
-    color: #ddd; /* Lighter text for dark mode */
-  }
-
+  .image-view h2,
   .image-view p {
-    color: #aaa; /* Lighter gray text for dark mode */
+      color: #ddd;
   }
+}
 
-  .image-view img {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3); /* Softer shadow in dark mode */
+@media (prefers-color-scheme: light) {
+  .image-view h2,
+  .image-view p {
+      color: #333;
+  }
+}
+
+/* Navigation buttons styling */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-button {
+      background-color: #ddd;
+      color: #333;
+  }
+  .nav-button:hover {
+      background-color: #bbb;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .nav-button {
+      background-color: #333;
+      color: white;
+  }
+  .nav-button:hover {
+      background-color: #555;
   }
 }
