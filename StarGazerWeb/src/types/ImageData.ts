@@ -5,6 +5,7 @@ export interface ImageData {
   thumbY: number | null;
   thumbDim: number | null;
   displayName: string | null;
+  type: string | null;
   ra: number | null;
   dec: number | null;
   constellation: string | null;

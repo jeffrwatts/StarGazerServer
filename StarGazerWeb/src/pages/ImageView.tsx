@@ -37,8 +37,6 @@ const ImageView: React.FC<ImageViewProps> = ({ images }) => {
         src={`/images/${image.objectId}.webp`}
         alt={image.displayName || image.objectId}
       />
-      <p>RA: {image.ra}</p>
-      <p>Dec: {image.dec}</p>
       <p>Constellation: {image.constellation || 'Unknown'}</p>
 
       {/* Navigation buttons */}

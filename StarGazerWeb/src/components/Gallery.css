@@ -1,5 +1,3 @@
-/* src/components/Gallery.css */
-
 /* Container for the gallery */
 .gallery {
   display: grid;
@@ -45,5 +43,24 @@
 
   .gallery-item img {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Softer shadow in dark mode */
+  }
+}
+
+/* Additional styling for section headers */
+.gallery-section {
+  margin-bottom: 40px;
+}
+
+.gallery-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Dark mode for section headers */
+@media (prefers-color-scheme: dark) {
+  .gallery-section h2 {
+    color: #ddd;
   }
 }
